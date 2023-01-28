@@ -1,9 +1,15 @@
-package com.example.arrays.myimpl.mysynchronized;
+package com.example.arrays.myimpl.mythreadsafe;
 
-public class TestMySynchronizedArray {
+/*
+ * Alejandro
+ * 01/28/2023
+ * This class is meant to test MyThreadSafeStackArray class
+ * using producers and consumers
+ */
+public class MyThreadSafeStackArrayTest {
     public static void main(String[] args) {
 
-        MySynchronizedArray<Integer> array = new MySynchronizedArray<>();
+        MyThreadSafeStackArray<Integer> array = new MyThreadSafeStackArray<>();
         MyProducer producer1 = new MyProducer(array, "Producer 1");
         MyProducer producer2 = new MyProducer(array, "Producer 2");
         MyConsumer consumer1 = new MyConsumer(array, "Consumer 1");

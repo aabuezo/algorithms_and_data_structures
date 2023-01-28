@@ -1,16 +1,16 @@
-package com.example.arrays.myimpl.mysynchronized;
+package com.example.arrays.myimpl.mythreadsafe;
 
 import com.example.arrays.myimpl.interfaces.IMyStackArray;
 import com.example.arrays.myimpl.myarray.MyArray;
 
-public class MySynchronizedArray<T> implements IMyStackArray<T> {
+public class MyThreadSafeStackArray<T> implements IMyStackArray<T> {
 
     private MyArray<T> array;
-    MySynchronizedArray() {
+    MyThreadSafeStackArray() {
         this.array = new MyArray<>();
     }
 
-    MySynchronizedArray(int capacity) {
+    MyThreadSafeStackArray(int capacity) {
         this.array = new MyArray<>(capacity);
     }
 

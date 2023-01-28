@@ -5,9 +5,9 @@ import com.example.arrays.myimpl.interfaces.IMyStackArray;
 
 public class MyArray<T> implements IMyArray<T>, IMyStackArray<T> {
 
-    T[] array = null;           // array of Ts
+    T[] array;                 // array of Ts
 
-    private int capacity = 2;  // array capacity - should always be >= length
+    private int capacity = 2;  // array capacity - should always be >= length - set to 2 for testing purposes
 
     private int length = 0;     // represents next index and also how many elements are there in the array
 
@@ -24,23 +24,12 @@ public class MyArray<T> implements IMyArray<T>, IMyStackArray<T> {
         this.length = this.capacity = array.length;
     }
 
-    private T[] createArray(int capacity) {
+    private T[] createArray(int capacity) {     // for internal use only
         this.capacity = capacity;
         return (T[]) new Object[capacity];
     }
 
-    @Override
-    public int capacity() {
-        return this.capacity;
-    }
-
-    // Returns the length
-    @Override
-    public int length() {
-        return this.length;
-    }
-
-    private void extendCapacity() {
+    private void extendCapacity() {             // for internal use only
         if (this.array == null) {
             return;
         }
@@ -63,6 +52,17 @@ public class MyArray<T> implements IMyArray<T>, IMyStackArray<T> {
     }
 
     @Override
+    public int capacity() {
+        return this.capacity;
+    }
+
+    // Returns the length
+    @Override
+    public int length() {
+        return this.length;
+    }
+
+    @Override
     public T get(int index) throws ArrayIndexOutOfBoundsException {
         if (index < 0 || index >= this.length) {
             throw new ArrayIndexOutOfBoundsException("Index out of bounds.");
@@ -74,7 +74,7 @@ public class MyArray<T> implements IMyArray<T>, IMyStackArray<T> {
     // returns the index of the first ocurrence of value in array,
     // returns -1 if value is not present
     @Override
-    public int firstIndexOf(T value) {
+    public int indexOf(T value) {
         for (int i = 0; i < this.length; i++) {
             if (this.array[i].equals(value)) {
                 return i;
@@ -99,22 +99,6 @@ public class MyArray<T> implements IMyArray<T>, IMyStackArray<T> {
     @Override
     public boolean isEmpty() {
         return (this.length == 0);
-    }
-
-    @Override
-    public void copy(T[] array) {
-
-        // verify capacity before copying
-        while ((this.capacity - this.length) < array.length) {
-            extendCapacity();
-        }
-        // once there's enough capacity
-        int i = 0;
-        while (i < array.length) {
-            this.array[i] = array[i];
-            i++;
-        }
-
     }
 
     @Override
@@ -146,4 +130,5 @@ public class MyArray<T> implements IMyArray<T>, IMyStackArray<T> {
         sb.append("]");
         return sb.toString();
     }
+
 }

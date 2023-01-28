@@ -3,16 +3,15 @@ package com.example.arrays.myimpl.myarray;
 import com.example.arrays.myimpl.interfaces.IMyArray;
 import com.example.arrays.myimpl.interfaces.IMyStackArray;
 
-public class TestMyArray {
+public class MyArrayTest {
     public static void main(String[] args) {
-
-
 
         Integer[] numbers = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
         IMyArray<Integer> myNumbers = new MyArray<>(numbers);
         System.out.println("myNumbers.isEmpty(): " + myNumbers.isEmpty());
         System.out.println("myNumbers.capacity(): " + myNumbers.capacity());
         System.out.println("myNumbers.length(): " + myNumbers.length());
+        System.out.println("myNumbers.indexOf(10): " + myNumbers.indexOf(10));
         System.out.println(myNumbers);
         myNumbers.add(15, 16);
         System.out.println("myNumbers.capacity(): " + myNumbers.capacity());
@@ -49,5 +48,6 @@ public class TestMyArray {
         myStack.pop();
         myStack.pop();
         System.out.println("myStack[]: " + myStack);
+
     }
 }
