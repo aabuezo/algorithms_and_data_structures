@@ -1,12 +1,17 @@
-package com.example.arrays.myimpl.mysynchronized;
+package com.example.arrays.myimpl.mythreadsafe;
 
 import java.util.Random;
 
+/*
+ * Alejandro
+ * 01/28/2023
+ * This class is meant to test MyThreadSafeStackArray.pop()
+ */
 public class MyConsumer extends Thread {
 
-    private MySynchronizedArray array;
+    private MyThreadSafeStackArray array;
 
-    MyConsumer(MySynchronizedArray array, String name) {
+    MyConsumer(MyThreadSafeStackArray array, String name) {
         super(name);
         this.array = array;
     }
@@ -17,7 +22,7 @@ public class MyConsumer extends Thread {
             Integer value = (Integer) array.pop();
             System.out.printf("%s consumed %d\n", getName(), value);
             try {
-                Thread.sleep(new Random().nextInt(200));
+                Thread.sleep(new Random().nextInt(300));
             } catch (InterruptedException e) {
                 System.out.println(e.getMessage());
             }
