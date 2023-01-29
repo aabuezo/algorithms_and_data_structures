@@ -4,7 +4,8 @@ package com.example.sort.selection;
  * Alejandro
  * 01/29/2023
  * Selection sort: O(n²)
- * Unstable
+ * In-place algorithm
+ * Unstable algorithm
  */
 public class SelectionSort {
 

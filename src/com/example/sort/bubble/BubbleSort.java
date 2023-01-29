@@ -4,7 +4,8 @@ package com.example.sort.bubble;
  * Alejandro
  * 01/29/2023
  * Bubble sort: O(n²)
- * Stable
+ * In-place algorithm
+ * Stable algorithm
  */
 public class BubbleSort {
 
