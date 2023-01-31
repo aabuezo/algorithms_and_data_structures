@@ -1,4 +1,4 @@
-package com.example.divideandconquer;
+package com.example.sort.divideandconquer.merge;
 
 public class MergeSort {
     public static void main(String[] args) {
