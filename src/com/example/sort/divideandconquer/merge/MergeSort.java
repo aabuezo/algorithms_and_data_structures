@@ -32,7 +32,7 @@ public class MergeSort {
 
         // left is ordered, right is ordered so if the rightmost element in the left partition
         // is lower than the leftmost element in the right partition, we must do nothing
-        if (array[mid - 1] == array[mid]) {
+        if (array[mid - 1] <= array[mid]) {
             return;
         }
 
